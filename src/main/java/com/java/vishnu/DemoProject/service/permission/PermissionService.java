@@ -15,8 +15,10 @@ public interface PermissionService {
 
     Permission getPermissionById(Long permissionId) throws UserNotFoundException;
 
-    List<Permission> getAllPermission();
+    List<Permission> getAllPermission(Long id, String name, String description, String type);
 
     Permission updatePermission(Long id, UpdatePermissionRequest updatePermissionRequest);
+
 }
+
 

@@ -12,7 +12,7 @@ public interface PermissionRepository {
 
     void deletePermissionById(Long id);
 
-    List<Permission> getAllPermission();
+    List<Permission> getAllPermission(Long id, String name, String description, String type);
 
     Permission updatePermission(Permission permission);
 
