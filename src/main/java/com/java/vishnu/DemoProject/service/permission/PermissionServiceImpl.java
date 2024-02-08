@@ -41,8 +41,8 @@ public class  PermissionServiceImpl implements  PermissionService
     }
 
     @Override
-    public List<Permission> getAllPermission() {
-        return permissionRepository.getAllPermission();
+    public List<Permission> getAllPermission(Long id, String name, String description, String type) {
+        return permissionRepository.getAllPermission(id,name,description,type);
     }
 
     @Override

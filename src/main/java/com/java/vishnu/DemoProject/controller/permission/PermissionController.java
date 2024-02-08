@@ -7,6 +7,8 @@ import com.java.vishnu.DemoProject.models.permission.Permission;
 import com.java.vishnu.DemoProject.models.permission.UpdatePermissionRequest;
 import com.java.vishnu.DemoProject.service.permission.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.nio.file.attribute.UserPrincipalNotFoundException;
@@ -24,7 +26,7 @@ public class PermissionController {
     }
 
     @GetMapping("/permissions/{id}")
-    public Permission getPermissionById(@PathVariable(name = "id") Long permissionId)  throws UserNotFoundException {
+    public Permission getPermissionById(@PathVariable(name = "id") Long permissionId) throws UserNotFoundException {
 
         return permissionService.getPermissionById(permissionId);
     }
@@ -36,8 +38,13 @@ public class PermissionController {
     }
 
     @GetMapping("/permission")
-    public List<Permission> getAllPermission() {
-        return permissionService.getAllPermission();
+    public ResponseEntity<List<Permission>> getAllPermission(
+            @RequestParam(required = false) Long id,
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String description,
+            @RequestParam(required = false) String type) {
+        List<Permission> permissions = permissionService.getAllPermission(id, name, description, type);
+        return new ResponseEntity<>(permissions, HttpStatus.OK);
     }
 
     @PutMapping("/permission/{id}")

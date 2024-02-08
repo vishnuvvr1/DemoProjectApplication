@@ -12,8 +12,9 @@ public interface CustomerRepository {
 
     void deletedCustomerById(Long id);
 
-    List<Customer> getAllCustomer();
+    List<Customer> getAllCustomer(Long id, String name, String organisation, String country, String state, String description, String tradeMark);
 
     Customer updateCustomer(Customer customer);
 
 }
+

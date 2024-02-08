@@ -8,6 +8,9 @@ import com.java.vishnu.DemoProject.models.user.UpdateUserRequest;
 import com.java.vishnu.DemoProject.models.user.User;
 import com.java.vishnu.DemoProject.service.customer.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,10 +36,17 @@ public class CustomerController {
         customerService.deleteCustomerById(id);
         return "deleted by id ";
     }
-
     @GetMapping("/customers")
-    public List<Customer> getAllCustomers() {
-        return customerService.getAllCustomer();
+    public ResponseEntity<List<Customer>> getAllCustomers(
+            @RequestParam(required = false) Long id,
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String organisation,
+            @RequestParam(required = false) String country,
+            @RequestParam(required = false) String state,
+            @RequestParam(required = false) String description,
+            @RequestParam(required = false) String tradeMark) {
+        List<Customer> customers= customerService.getAllCustomer(id,name,organisation,country,state,description,tradeMark);
+        return new ResponseEntity<>(customers, HttpStatus.OK);
 
     }
 

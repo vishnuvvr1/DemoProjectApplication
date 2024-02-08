@@ -46,8 +46,8 @@ public class CustomerServiceImpI implements CustomerService {
     }
 
     @Override
-    public List<Customer> getAllCustomer() {
-        return customerRepository.getAllCustomer();
+    public List<Customer> getAllCustomer(Long id, String name, String organisation, String country, String state, String description, String tradeMark) {
+        return customerRepository.getAllCustomer(id,name,organisation,country,state,description,tradeMark);
     }
 
     @Override
