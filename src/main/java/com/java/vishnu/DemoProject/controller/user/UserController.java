@@ -13,6 +13,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -39,7 +40,7 @@ public class UserController {
 
 
     @GetMapping("/users/{id}")
-    @Operation(summary = "Get User By Id", responses = {@ApiResponse(description = "Ok",responseCode = "200",
+    @Operation(summary = "Get User By Id", responses = {@ApiResponse(description = "Ok", responseCode = "200",
             content = @Content(schema = @Schema(implementation = User.class)))
     })
     public ResponseEntity<User> getUserByid(@PathVariable(name = "id") Long userid) {
@@ -48,7 +49,7 @@ public class UserController {
     }
 
     @DeleteMapping("/users/{id}")
-    @Operation(summary = "Delete User By Id", responses = {@ApiResponse(description = "Ok",responseCode = "200",
+    @Operation(summary = "Delete User By Id", responses = {@ApiResponse(description = "Ok", responseCode = "200",
             content = @Content(schema = @Schema(implementation = void.class)))
     })
 
@@ -59,7 +60,7 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    @Operation(summary = "List All Users", responses = {@ApiResponse(description = "Ok",responseCode = "200",
+    @Operation(summary = "List All Users", responses = {@ApiResponse(description = "Ok", responseCode = "200",
             content = @Content(schema = @Schema(implementation = User.class)))
     })
 
@@ -75,7 +76,7 @@ public class UserController {
     }
 
     @PutMapping("/users/{id}")
-    @Operation(summary = "Update Users", responses = {@ApiResponse(description = "Ok",responseCode = "200",
+    @Operation(summary = "Update Users", responses = {@ApiResponse(description = "Ok", responseCode = "200",
             content = @Content(schema = @Schema(implementation = UpdateUserRequest.class)))
     })
 
@@ -86,7 +87,7 @@ public class UserController {
     }
 
     @GetMapping("users/get/{name}")
-    @Operation(summary = "Get User By First Name", responses = {@ApiResponse(description = "Ok",responseCode = "200",
+    @Operation(summary = "Get User By First Name", responses = {@ApiResponse(description = "Ok", responseCode = "200",
             content = @Content(schema = @Schema(implementation = User.class)))
     })
 
@@ -95,4 +96,10 @@ public class UserController {
         return new ResponseEntity<>(user, HttpStatus.OK);
 
     }
+
+    @GetMapping("/dev")
+    public ResponseEntity<String> devEndpoint() {
+        return ResponseEntity.ok("Vishnu Java Developer");
+    }
+
 }

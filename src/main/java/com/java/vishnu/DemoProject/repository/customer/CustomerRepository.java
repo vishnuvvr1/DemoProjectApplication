@@ -10,11 +10,11 @@ public interface CustomerRepository {
 
     Customer getCustomerById(Long id);
 
-    void deletedCustomerById(Long id);
 
     List<Customer> getAllCustomer(Long id, String name, String organisation, String country, String state, String description, String tradeMark);
 
     Customer updateCustomer(Customer customer);
 
+    void deleteCustomerById(Long id);
 }
 

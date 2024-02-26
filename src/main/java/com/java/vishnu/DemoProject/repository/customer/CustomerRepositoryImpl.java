@@ -25,35 +25,31 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         return customerDao.findById(id).orElse(null);
     }
 
-    @Override
-    public void deletedCustomerById(Long id) {
-        customerDao.deleteById(id);
-    }
 
     @Override
     public List<Customer> getAllCustomer(Long id, String name, String organisation, String country, String state, String description, String tradeMark) {
         List<Customer> customers = new ArrayList<>();
-        if (id != null){
+        if (id != null) {
             customers.add(customerDao.findById(id).get());
             return customers;
         }
-        if (name != null){
-            return  customerDao.findAllByName(name);
+        if (name != null) {
+            return customerDao.findAllByName(name);
         }
-        if (organisation != null){
-            return  customerDao.findAllByOrganisation(organisation);
+        if (organisation != null) {
+            return customerDao.findAllByOrganisation(organisation);
         }
-        if (country != null){
-            return  customerDao.findAllByCountry(country);
+        if (country != null) {
+            return customerDao.findAllByCountry(country);
         }
-        if (state != null){
-            return  customerDao.findAllByState(state);
+        if (state != null) {
+            return customerDao.findAllByState(state);
         }
-        if (description != null){
-            return  customerDao.findAllByDescription(description);
+        if (description != null) {
+            return customerDao.findAllByDescription(description);
         }
-        if (tradeMark != null){
-            return  customerDao.findAllByTradeMark(tradeMark);
+        if (tradeMark != null) {
+            return customerDao.findAllByTradeMark(tradeMark);
         }
 
         return customerDao.findAll();
@@ -64,4 +60,11 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         return customerDao.save(customer);
     }
 
+    @Override
+    public void deleteCustomerById(Long id) {
+        customerDao.deleteById(id);
+    }
+
 }
+
+
