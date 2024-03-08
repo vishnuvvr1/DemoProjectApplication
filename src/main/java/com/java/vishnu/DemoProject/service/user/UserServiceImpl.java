@@ -12,7 +12,6 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-@Profile("dev")
 public class UserServiceImpl implements UserService {
 
     @Autowired

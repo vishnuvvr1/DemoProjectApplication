@@ -3,17 +3,13 @@ package com.java.vishnu.DemoProject.controller.user;
 import com.java.vishnu.DemoProject.models.user.CreateUserRequest;
 import com.java.vishnu.DemoProject.models.user.UpdateUserRequest;
 import com.java.vishnu.DemoProject.models.user.User;
-import com.java.vishnu.DemoProject.repository.Permission.PermissionRepository;
-import com.java.vishnu.DemoProject.repository.customer.CustomerDao;
 import com.java.vishnu.DemoProject.service.user.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import io.swagger.v3.oas.annotations.tags.Tags;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -96,10 +92,4 @@ public class UserController {
         return new ResponseEntity<>(user, HttpStatus.OK);
 
     }
-
-    @GetMapping("/dev")
-    public ResponseEntity<String> devEndpoint() {
-        return ResponseEntity.ok("Vishnu Java Developer");
-    }
-
 }

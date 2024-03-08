@@ -4,9 +4,6 @@ import com.java.vishnu.DemoProject.exceptions.UserNotFoundException;
 import com.java.vishnu.DemoProject.models.customer.CreateCustomerRequest;
 import com.java.vishnu.DemoProject.models.customer.Customer;
 import com.java.vishnu.DemoProject.models.customer.UpdateCustomerRequest;
-import com.java.vishnu.DemoProject.models.user.CreateUserRequest;
-import com.java.vishnu.DemoProject.models.user.UpdateUserRequest;
-import com.java.vishnu.DemoProject.models.user.User;
 import com.java.vishnu.DemoProject.service.customer.CustomerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -15,7 +12,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
