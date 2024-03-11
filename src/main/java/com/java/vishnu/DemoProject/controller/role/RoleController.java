@@ -1,5 +1,6 @@
 package com.java.vishnu.DemoProject.controller.role;
 
+import com.java.vishnu.DemoProject.exceptions.UserNotFoundException;
 import com.java.vishnu.DemoProject.models.role.CreateRoleRequest;
 import com.java.vishnu.DemoProject.models.role.Role;
 import com.java.vishnu.DemoProject.models.role.UpdateRoleRequest;
@@ -41,10 +42,10 @@ public class RoleController {
             responseCode = "200",
             content = @Content(schema = @Schema(implementation = Role.class)))})
 
-    public ResponseEntity<Role> getRoleById(@PathVariable(name = "id") Long id) {
+    public Role getRoleById(@PathVariable(name = "id") Long id) throws UserNotFoundException {
 
         Role role = roleService.getRoleById(id);
-        return new ResponseEntity<>(role, HttpStatus.OK);
+        return new ResponseEntity<>(role, HttpStatus.OK).getBody();
     }
 
 

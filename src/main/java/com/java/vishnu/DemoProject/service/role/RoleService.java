@@ -1,5 +1,6 @@
 package com.java.vishnu.DemoProject.service.role;
 
+import com.java.vishnu.DemoProject.exceptions.UserNotFoundException;
 import com.java.vishnu.DemoProject.models.role.CreateRoleRequest;
 import com.java.vishnu.DemoProject.models.role.Role;
 import com.java.vishnu.DemoProject.models.role.UpdateRoleRequest;
@@ -9,7 +10,7 @@ import java.util.List;
 public interface RoleService {
     Role createRole(CreateRoleRequest createRoleRequest);
 
-    Role getRoleById(Long id);
+    Role getRoleById(Long id) throws UserNotFoundException, UserNotFoundException, UserNotFoundException;
 
     void deleteRoleById(Long id);
 

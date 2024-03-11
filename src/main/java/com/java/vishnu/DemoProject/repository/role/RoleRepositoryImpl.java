@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class RoleRepositoryImpl implements RoleRepository {
@@ -19,7 +20,8 @@ public class RoleRepositoryImpl implements RoleRepository {
 
     @Override
     public Role getRloeById(Long id) {
-        return roleDao.findById(id).get();
+        Optional<Role>role = roleDao.findById(id);
+        return role.orElse(null);
     }
 
     @Override

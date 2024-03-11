@@ -1,5 +1,6 @@
 package com.java.vishnu.DemoProject.service.role;
 
+import com.java.vishnu.DemoProject.exceptions.UserNotFoundException;
 import com.java.vishnu.DemoProject.models.role.CreateRoleRequest;
 import com.java.vishnu.DemoProject.models.role.Role;
 import com.java.vishnu.DemoProject.models.role.UpdateRoleRequest;
@@ -26,7 +27,11 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public Role getRoleById(Long id) {
+    public Role getRoleById(Long id) throws UserNotFoundException {
+        Role role= roleRepository.getRloeById(id);
+        if(role == null){
+            throw new UserNotFoundException("Role not found with id: " + id);
+        }
         return roleRepository.getRloeById(id);
     }
 
