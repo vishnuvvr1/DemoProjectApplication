@@ -1,5 +1,6 @@
 package com.java.vishnu.DemoProject.controller.customer;
 
+import ch.qos.logback.core.model.Model;
 import com.java.vishnu.DemoProject.exceptions.UserNotFoundException;
 import com.java.vishnu.DemoProject.models.customer.CreateCustomerRequest;
 import com.java.vishnu.DemoProject.models.customer.Customer;
@@ -11,6 +12,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,9 +23,16 @@ import java.util.List;
 @RequestMapping("/api")
 @Tag(name = "Customer Controller", description = "Manage Customers In Demo API")
 public class CustomerController {
-    @Autowired
-    private CustomerService customerService;
 
+    @Autowired
+    public CustomerController(@Qualifier("customerService") CustomerService customerService){
+        this.customerService=customerService;
+    }
+    private CustomerService customerService;
+    @ModelAttribute("appName")
+    public String commonAttributes() {
+        return "Demo Project";
+    }
     @PostMapping("/customers")
     @Operation(summary = "Create Customers", responses = {@ApiResponse(description = "OK",
             responseCode = "201",

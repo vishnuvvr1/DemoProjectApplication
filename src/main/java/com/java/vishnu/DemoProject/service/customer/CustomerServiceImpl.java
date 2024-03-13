@@ -6,14 +6,20 @@ import com.java.vishnu.DemoProject.models.customer.Customer;
 import com.java.vishnu.DemoProject.models.customer.UpdateCustomerRequest;
 import com.java.vishnu.DemoProject.repository.customer.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Qualifier("customerService")
 public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
+    public CustomerServiceImpl(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
+
     private CustomerRepository customerRepository;
 
     @Override
@@ -61,4 +67,6 @@ public class CustomerServiceImpl implements CustomerService {
         }
         return null; // or throw an exception if needed
     }
+
+
 }
