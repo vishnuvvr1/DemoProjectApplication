@@ -1,6 +1,5 @@
 package com.java.vishnu.DemoProject.controller.customer;
 
-import ch.qos.logback.core.model.Model;
 import com.java.vishnu.DemoProject.exceptions.UserNotFoundException;
 import com.java.vishnu.DemoProject.models.customer.CreateCustomerRequest;
 import com.java.vishnu.DemoProject.models.customer.Customer;
