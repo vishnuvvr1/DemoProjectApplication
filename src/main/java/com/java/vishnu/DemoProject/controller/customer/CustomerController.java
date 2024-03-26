@@ -24,21 +24,27 @@ import java.util.List;
 public class CustomerController {
 
     @Autowired
-    public CustomerController(@Qualifier("customerService") CustomerService customerService){
-        this.customerService=customerService;
+    public CustomerController(@Qualifier("customerService") CustomerService customerService) {
+        this.customerService = customerService;
+
     }
+
     private CustomerService customerService;
+
     @ModelAttribute("appName")
     public String commonAttributes() {
         return "Demo Project";
     }
+
+
     @PostMapping("/customers")
     @Operation(summary = "Create Customers", responses = {@ApiResponse(description = "OK",
             responseCode = "201",
             content = @Content(schema = @Schema(implementation = CreateCustomerRequest.class)))
     })
-    public Customer createCustomer(@RequestBody CreateCustomerRequest createCustomerRequest) {
-        return customerService.createcustomer(createCustomerRequest);
+    public ResponseEntity<Customer> createCustomer(@RequestBody CreateCustomerRequest createCustomerRequest) {
+        Customer customer = customerService.createcustomer(createCustomerRequest);
+        return new ResponseEntity<>(customer, HttpStatus.CREATED);
     }
 
     @GetMapping("/customers/{id}")
