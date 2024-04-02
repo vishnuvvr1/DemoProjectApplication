@@ -21,8 +21,13 @@ import java.util.List;
 @RequestMapping("/api")
 @Tag(name = "User Controller", description = "Manages users in this demo API")
 public class UserController {
+    private final UserService userService;
+
+
     @Autowired
-    private UserService userService;
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @PostMapping("/users")
     @Operation(summary = "Create User", responses = {@ApiResponse(description = "OK",
