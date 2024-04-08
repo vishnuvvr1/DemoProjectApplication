@@ -19,6 +19,8 @@ public class DemoProjectApplication {
     private EmailService emailService;
 
     public static void main(String[] args) {
+
+
         SpringApplication.run(DemoProjectApplication.class, args);
     }
 
@@ -35,7 +37,7 @@ public class DemoProjectApplication {
     @EventListener(ApplicationReadyEvent.class)
     public void sendMail() {
         emailService.SendMail("vishnuvvr8919@gmail.com",
-                "this is subject", "this is vishnu");
+                "java developer", "this is vishnu");
     }
 
 
