@@ -19,4 +19,7 @@ public interface UserRepository {
     User getUserByFirstName(String name);
 
 
+    User getUserByEmail(String userEmail);
+
 }
+

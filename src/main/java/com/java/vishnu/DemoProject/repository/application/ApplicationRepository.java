@@ -14,6 +14,12 @@ public interface ApplicationRepository {
     List<Application> listApplications(Long id, String name, String displayName, String loginUrl, String logoutUrl, Long version, String description, boolean active);
 
     Application updateApplication(Application application);
+
+
+    Application getApplicationByName(String applicationName);
+
+    List<Application> getApplicationsByUserId(Long id);
 }
+
 
 

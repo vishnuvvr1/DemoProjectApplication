@@ -2,7 +2,6 @@ package com.java.vishnu.DemoProject.repository.user;
 
 import com.java.vishnu.DemoProject.models.user.User;
 import com.java.vishnu.DemoProject.repository.UserDao;
-import com.java.vishnu.DemoProject.repository.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -70,5 +69,9 @@ public class UserRepositoryImpl implements UserRepository {
         return userDao.findByFirstName(name);
     }
 
-
+    @Override
+    public User getUserByEmail(String userEmail) {
+        return userDao.findByEmail(userEmail);
+    }
 }
+

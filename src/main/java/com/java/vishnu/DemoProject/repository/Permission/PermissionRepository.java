@@ -16,4 +16,5 @@ public interface PermissionRepository {
 
     Permission updatePermission(Permission permission);
 
+    Permission getPermissionByName(String permissionName);
 }

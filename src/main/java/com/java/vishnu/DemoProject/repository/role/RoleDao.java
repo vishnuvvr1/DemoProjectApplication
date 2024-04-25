@@ -13,6 +13,8 @@ public interface RoleDao extends JpaRepository<Role, Long> {
     List<Role> findAllByType(String type);
 
     List<Role> findAllByDisplayName(String displayName);
+
+    Role findByName(String roleName);
 }
 
 

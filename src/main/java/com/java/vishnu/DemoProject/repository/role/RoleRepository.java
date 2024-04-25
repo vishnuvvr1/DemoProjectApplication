@@ -15,7 +15,11 @@ public interface RoleRepository {
 
 
     Role updateRole(Role role);
+
+    Role getRoleByName(String roleName);
+
 }
+
 
 
 

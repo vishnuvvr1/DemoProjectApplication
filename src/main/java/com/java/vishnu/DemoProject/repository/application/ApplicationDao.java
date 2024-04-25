@@ -19,7 +19,10 @@ public interface ApplicationDao extends JpaRepository<Application, Long> {
     List<Application> findAllByVersion(Long version);
 
     List<Application> findAllByDescription(String description);
+
+    Application findByName(String applicationName);
 }
+
 
 
 

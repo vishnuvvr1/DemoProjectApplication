@@ -64,4 +64,14 @@ public class ApplicationRepositoryImpl implements ApplicationRepository {
     public Application updateApplication(Application application) {
         return applicationDao.save(application);
     }
+
+    @Override
+    public Application getApplicationByName(String applicationName) {
+        return applicationDao.findByName(applicationName);
+    }
+
+    @Override
+    public List<Application> getApplicationsByUserId(Long id) {
+        return null;
+    }
 }
